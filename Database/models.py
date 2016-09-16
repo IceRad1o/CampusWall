@@ -8,8 +8,9 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 reload(sys)
 sys.setdefaultencoding('utf8')  # python的str默认是ascii编码，和unicode编码冲突,需处理
 
-DB_CONNECT_STRING = 'mysql+mysqldb://root@127.0.0.1/campuswall?charset=utf8'
-
+#DB_CONNECT_STRING = 'mysql+mysqldb://root@127.0.0.1/campuswall?charset=utf8'
+#DB_CONNECT_STRING = 'mysql+mysqldb://root:ydrs.sql.7234@localhost:3306/Shacus?charset=utf8'
+DB_CONNECT_STRING = 'mysql+mysqldb://root:seuwjl@localhost:3306/campuswall?charset=utf8'
 #  pool_recycle=10
 engine = create_engine(DB_CONNECT_STRING, echo=True, pool_size=100, max_overflow=300)  # 返回数据库引擎，即连接数据库
 connection = engine.connect()

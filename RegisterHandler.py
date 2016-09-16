@@ -20,7 +20,7 @@ class RegisterHandler(BaseHandler):
                 user = self.db.query(User).filter(User.Utel == m_phone).one()
                 if user:
                     self.retjson['contents'] = u"该手机号已经被注册，请更换手机号或直接登录"
-                    self.retjson['code'] = 10005
+                    self.retjson['code'] = '10005'
             except Exception,e:
                 print e
                 self.retjson['code']='10006'
