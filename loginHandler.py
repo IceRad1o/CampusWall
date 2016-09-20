@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-from sqlalchemy.dialects.mysql import json
+import json
 
 from BaseHandlerh import BaseHandler
 from Database.tables import User
