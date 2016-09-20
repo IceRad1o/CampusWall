@@ -39,13 +39,14 @@ class Activity(Base):
     AclikeN = Column(Integer, nullable=False, default=0)
     Accontent = Column(VARCHAR(128), nullable=False)
     Actitle = Column(VARCHAR(12), nullable=False)
+    Acvalid = Column(Boolean, nullable=False, default=1)
 
 class Favorite(Base):
     __tablename__ = 'Favorite'
 
     Fid = Column(Integer, primary_key=True)
     Fuid = Column(Integer, ForeignKey('User.Uid', onupdate='CASCADE'), nullable=False)
-    #Ftype = Column(Integer, nullable=False, default=0)   # 1为约拍，2为
+    #Ftype = Column(Integer, nullable=False, default=0)
     Ftypeid = Column(Integer, nullable=False, default=0)
     FT = Column(DateTime(timezone=True), default=func.now())
     Fvalid = Column(Boolean, nullable=False, default=1)

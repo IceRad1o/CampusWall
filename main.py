@@ -10,12 +10,14 @@ from tornado.options import define , options
 
 from Database.models import engine
 from RegisterHandler import RegisterHandler
+from loginHandler import loginHandler
 
 define("port",default=800,help="run on the server",type=int)
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
-                 (r"/user/regist",RegisterHandler),
+            (r"/user/regist",RegisterHandler),
+            (r"/user/login",loginHandler)
 
 
         ]

@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+from sqlalchemy.dialects.mysql import json
 
 from BaseHandlerh import BaseHandler
 from Database.tables import User
@@ -27,3 +28,4 @@ class loginHandler(BaseHandler):
                 print e
                 self.retjson['code']='10012'
                 self.retjson['contents'] = '没有此帐号'
+        self.write(json.dumps(self.retjson, ensure_ascii=False, indent=2))  # 返回中文
