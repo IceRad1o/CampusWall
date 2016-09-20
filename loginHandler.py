@@ -15,12 +15,11 @@ class loginHandler(BaseHandler):
             m_phone=self.get_argument("phone",default='none')
             m_password=self.get_argument('password',default='none')
             try:
-                user=self.db.query(User).filter(m_phone==User.Utel).one()
+                loguser=self.db.query(User).filter(m_phone==User.Utel).one()
                 try:
-                    pawd=self.db.query(User).filter(user.Upassword==m_password).one()
-                    if pawd:
-                        self.retjson['code']='10011'
-                        self.retjson['contents']='登录成功'
+                    pawd=self.db.query(User).filter(User.Utel==loguser.Utel,User.Upassword==loguser.Upassword).one()
+                    self.retjson['code']='10011'
+                    self.retjson['contents']='登录成功'
                 except Exception,e:
                     self.retjson['code']='10012'
                     self.retjson['contents']='输入密码错误'
