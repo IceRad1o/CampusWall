@@ -9,9 +9,9 @@ from Database.tables import Activity, User
 
 
 class ActivityaskHandler(BaseHandler):
-
+    retjson = {'code': '200', 'contents': 'null'}
     def post(self):
-        retjson = {'code': '200', 'contents': 'null'}
+
         retdata = []
         type = self.get_argument('type', default='unsolved')
         if type == '12001':  # 请求刷新所有动态

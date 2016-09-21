@@ -11,13 +11,17 @@ from tornado.options import define , options
 from Database.models import engine
 from RegisterHandler import RegisterHandler
 from loginHandler import loginHandler
+from User.Userinfo import Userinfo
+from User.Usersetting import Usersetting
 
 define("port",default=800,help="run on the server",type=int)
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r"/user/regist",RegisterHandler),
-            (r"/user/login",loginHandler)
+            (r"/user/login",loginHandler),
+            (r"/user/getprofile",Userinfo),
+            (r"/user/editprofile",Usersetting)
 
 
         ]
