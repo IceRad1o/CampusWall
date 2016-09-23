@@ -14,17 +14,20 @@ class ActivityaskHandler(BaseHandler):
 
         retdata = []
         type = self.get_argument('type', default='unsolved')
-        if type == '12001':  # 请求刷新所有动态
-            u_id = self.get_argument('uid', default='null')
+        if type == '10050':  # 请求刷新所有动态
             try:
-                data = self.db.query(Activity).filter(Activity.ACvalid == 1).order_by(
+                data = self.db.query(Activity).filter(Activity.Acvalid == 1).order_by(
                     desc(Activity.AcsponsT)).all()
                 length = len(data)
                 print length
                 if length < 10:
                     for i in range(length):
-                        datauser = self.db.query(User).filter(data[i].Acsponsorid == User.Uid).one()
-                        Activityfunc.Activityfunc(datauser,retdata)
+                        Activityfunc.Activityfunc(data[i],retdata)
+                        self.retjson['code'] = '10303'
+                        self.retjson['contents'] = retdata
+                else:
+                    for item in range(0,10):
+                        Activityfunc.Activityfunc(data[item], retdata)
                         self.retjson['code'] = '10303'
                         self.retjson['contents'] = retdata
             except Exception,e:
