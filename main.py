@@ -13,6 +13,7 @@ from RegisterHandler import RegisterHandler
 from loginHandler import loginHandler
 from User.Userinfo import Userinfo
 from User.Usersetting import Usersetting
+from Activity.ActivityPublish import ActivityPublish
 
 define("port",default=800,help="run on the server",type=int)
 class Application(tornado.web.Application):
@@ -21,7 +22,8 @@ class Application(tornado.web.Application):
             (r"/user/regist",RegisterHandler),
             (r"/user/login",loginHandler),
             (r"/user/getprofile",Userinfo),
-            (r"/user/editprofile",Usersetting)
+            (r"/user/editprofile",Usersetting),
+            (r"/user/publish",ActivityPublish),
 
 
         ]

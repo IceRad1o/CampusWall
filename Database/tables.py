@@ -31,15 +31,16 @@ class User(Base): # 用户表   #添加聊天专用chattoken
 
 class Activity(Base):
     __tablename__ = 'Activity'
-    Acid = Column(Integer, primary_key=True)
+    Acid = Column(Integer, primary_key=True,nullable=False)
     Acsponsorimg = Column(VARCHAR(128), nullable=False)
-    Acsponsorid = Column(Integer, ForeignKey('User.Uid', onupdate='CASCADE'), primary_key=True)  # 用户id
+    Acsponsorid = Column(Integer, ForeignKey('User.Uid', onupdate='CASCADE'))  # 用户id
     AcsponsT = Column(DateTime(timezone=True), default=func.now())  # 时间
     AccommentN = Column(Integer, nullable=False, default=0)
     AclikeN = Column(Integer, nullable=False, default=0)
     Accontent = Column(VARCHAR(128), nullable=False)
     Actitle = Column(VARCHAR(12), nullable=False)
     Acvalid = Column(Boolean, nullable=False, default=1)
+    Accategory = Column(Integer , nullable=False ,default= 0)# 校园 情感 物品分别对应1，2，3
 
 class Favorite(Base):
     __tablename__ = 'Favorite'
