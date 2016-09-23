@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91447c5f-2b97-45e5-9654-c57d09b63e86" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Database/models.py" afterPath="$PROJECT_DIR$/Database/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Campuswall.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -595,7 +595,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1370" height="744" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24446085" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
