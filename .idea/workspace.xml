@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91447c5f-2b97-45e5-9654-c57d09b63e86" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Activity/Activitylike.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Documents/1.campuswall请求约定.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Documents/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Activity/ActivityaskHandler.py" afterPath="$PROJECT_DIR$/Activity/ActivityaskHandler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Activity/Activityfunc.py" afterPath="$PROJECT_DIR$/Activity/Activityfunc.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Database/models.py" afterPath="$PROJECT_DIR$/Database/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Database/tables.py" afterPath="$PROJECT_DIR$/Database/tables.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
     </list>
     <ignored path="Campuswall.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,7 +55,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActivityaskHandler.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ActivityaskHandler.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Activity/ActivityaskHandler.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="19">
@@ -143,11 +135,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Database/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-228">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="152">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -177,12 +169,12 @@
         <option value="$PROJECT_DIR$/User/Usersetting.py" />
         <option value="$PROJECT_DIR$/loginHandler.py" />
         <option value="$PROJECT_DIR$/Activity/ActivityPublish.py" />
-        <option value="$PROJECT_DIR$/Database/models.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/Database/tables.py" />
         <option value="$PROJECT_DIR$/Activity/Activitylike.py" />
         <option value="$PROJECT_DIR$/Activity/Activityfunc.py" />
         <option value="$PROJECT_DIR$/Activity/ActivityaskHandler.py" />
+        <option value="$PROJECT_DIR$/Database/models.py" />
       </list>
     </option>
   </component>
@@ -238,6 +230,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Campuswall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Campuswall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Campuswall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Database" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1003,14 +1009,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Database/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-228">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Activity/ActivityPublish.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1060,6 +1058,14 @@
           <folding>
             <element signature="e#22#33#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Database/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
