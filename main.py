@@ -15,6 +15,7 @@ from User.Userinfo import Userinfo
 from User.Usersetting import Usersetting
 from Activity.ActivityPublish import ActivityPublish
 from Activity.ActivityaskHandler import ActivityaskHandler
+from Activity.Activitylike import Activitylike
 
 define("port",default=800,help="run on the server",type=int)
 class Application(tornado.web.Application):
@@ -26,7 +27,7 @@ class Application(tornado.web.Application):
             (r"/user/editprofile",Usersetting),
             (r"/activity/publish",ActivityPublish),
             (r"/activity/ask",ActivityaskHandler),
-
+            (r"/activity/operation01",Activitylike),
 
         ]
         tornado.web.Application.__init__(self, handlers)

@@ -42,14 +42,15 @@ class Activity(Base):
     Acvalid = Column(Boolean, nullable=False, default=1)
     Accategory = Column(Integer , nullable=False ,default= 0)# 校园 情感 物品分别对应1，2，3
 
-class Favorite(Base):
+class Favorite(Base):#点赞表
     __tablename__ = 'Favorite'
 
     Fid = Column(Integer, primary_key=True)
-    Fuid = Column(Integer, ForeignKey('User.Uid', onupdate='CASCADE'), nullable=False)
+    Futel = Column(CHAR(11), ForeignKey('User.Utel', onupdate='CASCADE'), nullable=False)
+    #Fuid = Column(Integer,ForeignKey('User.Uid' ,  onupdate='CASCADE'), nullable=False)
     #Ftype = Column(Integer, nullable=False, default=0)
-    Ftypeid = Column(Integer, nullable=False, default=0)
-    FT = Column(DateTime(timezone=True), default=func.now())
+    Facid = Column(Integer, nullable=False, default=0)
+    FacT = Column(DateTime(timezone=True), default=func.now())
     Fvalid = Column(Boolean, nullable=False, default=1)
 
-
+#class Comment(Base):#评论表
