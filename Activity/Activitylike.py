@@ -66,6 +66,31 @@ class Activitylike(BaseHandler):
                 print e
                 self.retjson['code'] = '10062'
                 self.retjson['contents'] = '该活动不存在'
+        if type == '10080':
+            acid = self.get_argument('acid', default='null')
+            m_phone = self.get_argument('phone', default='null')
+            retdata = {'isliked':'null'}
+            try:
+                ifActivity = self.db.query(Activity).filter(Activity.Acid == acid).one()
+                if ifActivity:
+                    try:
+                        Aclike = self.db.query(Favorite).filter(Favorite.Facid == acid, Favorite.Futel == m_phone).one()
+                        retdata['isliked']= Aclike.Fvalid
+                        if Aclike.Fvalid==1:
+                            self.retjson['code']='10081'
+                        elif Aclike.Fvalid==0:
+                            self.retjson['code'] = '10082'
+                        self.retjson['contents']=retdata
+                    except Exception,e:
+                        print e
+                        self.retjson['code']='10083'
+                        self.retjson['contents']='查询失败！'
+
+
+            except Exception,e:
+                print e
+                self.retjson['code']='10083'
+                self.retjson['contents']='没有此活动！'
 
 
         self.write(json.dumps(self.retjson, ensure_ascii=False, indent=2))  # 返回中文
