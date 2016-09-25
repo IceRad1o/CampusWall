@@ -16,6 +16,7 @@ class ActivityaskHandler(BaseHandler):
         type = self.get_argument('type', default='unsolved')
         #m_category =self.get_argument('category',default='null')
         m_sortby=self.get_argument('sortby',default='null')
+        m_phone = self.get_argument('phone',default='null')
         if type == '10050':  # 请求刷新所有动态
             try:
                 if m_sortby == 'time':
@@ -31,12 +32,12 @@ class ActivityaskHandler(BaseHandler):
                 print length
                 if length < 10:
                     for i in range(length):
-                        Activityfunc.Activityfunc(data[i],retdata)
+                        Activityfunc.Activityfunc(data[i],m_phone,retdata)
                         self.retjson['code'] = '10054'
                         self.retjson['contents'] = retdata
                 else:
                     for item in range(0,10):
-                        Activityfunc.Activityfunc(data[item], retdata)
+                        Activityfunc.Activityfunc(data[item],m_phone,retdata)
                         self.retjson['code'] = '10054'
                         self.retjson['contents'] = retdata
             except Exception,e:
@@ -56,12 +57,12 @@ class ActivityaskHandler(BaseHandler):
                 print length
                 if length < 10:
                     for i in range(length):
-                        Activityfunc.Activityfunc(data[i],retdata)
+                        Activityfunc.Activityfunc(data[i],m_phone,retdata)
                         self.retjson['code'] = '10055'
                         self.retjson['contents'] = retdata
                 else:
                     for item in range(0,10):
-                        Activityfunc.Activityfunc(data[item], retdata)
+                        Activityfunc.Activityfunc(data[item],m_phone, retdata)
                         self.retjson['code'] = '10055'
                         self.retjson['contents'] = retdata
             except Exception,e:
@@ -81,12 +82,12 @@ class ActivityaskHandler(BaseHandler):
                 print length
                 if length < 10:
                     for i in range(length):
-                        Activityfunc.Activityfunc(data[i],retdata)
+                        Activityfunc.Activityfunc(data[i],m_phone,retdata)
                         self.retjson['code'] = '10056'
                         self.retjson['contents'] = retdata
                 else:
                     for item in range(0,10):
-                        Activityfunc.Activityfunc(data[item], retdata)
+                        Activityfunc.Activityfunc(data[item],m_phone, retdata)
                         self.retjson['code'] = '10056'
                         self.retjson['contents'] = retdata
             except Exception,e:
@@ -106,12 +107,12 @@ class ActivityaskHandler(BaseHandler):
                 print length
                 if length < 10:
                     for i in range(length):
-                        Activityfunc.Activityfunc(data[i],retdata)
+                        Activityfunc.Activityfunc(data[i],m_phone,retdata)
                         self.retjson['code'] = '10057'
                         self.retjson['contents'] = retdata
                 else:
                     for item in range(0,10):
-                        Activityfunc.Activityfunc(data[item], retdata)
+                        Activityfunc.Activityfunc(data[item],m_phone, retdata)
                         self.retjson['code'] = '10058'
                         self.retjson['contents'] = retdata
             except Exception,e:
