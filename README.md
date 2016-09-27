@@ -1,9 +1,6 @@
 # CampusWall
 campuswall--------for students' communication
-校园墙
-emotion
-campus
-objects
+funcions：emotion;object;campus problem;
+2016-09-25 
 
-seu-nju
-wjl
+

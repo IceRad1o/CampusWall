@@ -113,7 +113,7 @@ class ActivityaskHandler(BaseHandler):
                 else:
                     for item in range(0,10):
                         Activityfunc.Activityfunc(data[item],m_phone, retdata)
-                        self.retjson['code'] = '10058'
+                        self.retjson['code'] = '10057'
                         self.retjson['contents'] = retdata
             except Exception,e:
                 print e

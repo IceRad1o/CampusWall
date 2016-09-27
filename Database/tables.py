@@ -53,4 +53,11 @@ class Favorite(Base):#点赞表
     FacT = Column(DateTime(timezone=True), default=func.now())
     Fvalid = Column(Boolean, nullable=False, default=1)
 
-#class Comment(Base):#评论表
+class ActivityComment(Base):#评论表
+    __tablename__ = 'ActivityComment'
+
+    Commentid = Column(Integer ,primary_key=True)
+    ActivityAcid = Column(Integer,ForeignKey('Activity.Acid',onupdate='CASCADE'),nullable=False)
+    Comertel = Column(CHAR(11), ForeignKey('User.Utel',onupdate='CASCADE'),nullable=False)
+    Comcontent = Column(VARCHAR(128),nullable=False)
+    Comvalid = Column(Boolean,nullable=False,default=1)

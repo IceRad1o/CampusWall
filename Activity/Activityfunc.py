@@ -28,4 +28,13 @@ def Activityfunc(item,userphone,retdata):
         Acisliked = acisliked,
     )
     retdata.append(m_Activity)
+def Commentfunc(item,retdata):
+    Comment = dict(
+
+    Commentid= item.Commentid,
+    Comertel = item.Comertel,
+    Comcontent = item.Comcontent,
+
+    )
+    retdata.append(Comment)
 
