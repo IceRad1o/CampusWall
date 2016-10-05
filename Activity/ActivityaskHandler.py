@@ -18,6 +18,7 @@ class ActivityaskHandler(BaseHandler):
         if type == '10050':  # 请求刷新所有动态
             retdata = []
             try:
+                data = ''
                 if m_sortby == 'time':
                     data = self.db.query(Activity).filter(Activity.Acvalid == 1).order_by(
                         desc(Activity.AcsponsT)).all()
@@ -44,6 +45,7 @@ class ActivityaskHandler(BaseHandler):
         if type == '10051':  # 请求刷新所有1 动态
             retdata = []
             try:
+                data = ''
                 if m_sortby == 'time':
                     data = self.db.query(Activity).filter(Activity.Acvalid == 1,Activity.Accategory==1).order_by(
                         desc(Activity.AcsponsT)).all()
@@ -70,6 +72,7 @@ class ActivityaskHandler(BaseHandler):
         if type == '10052':  # 请求刷新所有 2 动态
             retdata = []
             try:
+                data = ''
                 if m_sortby == 'time':
                     data = self.db.query(Activity).filter(Activity.Acvalid == 1,Activity.Accategory==2).order_by(
                         desc(Activity.AcsponsT)).all()
@@ -96,6 +99,7 @@ class ActivityaskHandler(BaseHandler):
         if type == '10053':  # 请求刷新所有 3 动态
             retdata = []
             try:
+                data = ''
                 if m_sortby == 'time':
                     data = self.db.query(Activity).filter(Activity.Acvalid == 1,Activity.Accategory==3).order_by(
                         desc(Activity.AcsponsT)).all()
