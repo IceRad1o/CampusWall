@@ -82,9 +82,10 @@ class Activitylike(BaseHandler):
                             self.retjson['code'] = '10082'
                         self.retjson['contents']=retdata
                     except Exception,e:
+                        retdata['isliked']= 0
                         print e
-                        self.retjson['code']='10083'
-                        self.retjson['contents']='查询失败！'
+                        self.retjson['code']='10082'
+                        self.retjson['contents']=retdata
 
 
             except Exception,e:
