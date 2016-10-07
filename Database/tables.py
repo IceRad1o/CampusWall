@@ -28,6 +28,12 @@ class User(Base): # 用户表   #添加聊天专用chattoken
     Usex = Column(Boolean,nullable=False)
     Usign = Column(VARCHAR(256))
     #Uauthkey = Column(VARCHAR(32))
+class UserImage(Base):
+    __tablename__ = 'UserImage'
+
+    Uimagetel = Column(CHAR(11),ForeignKey('User.Utel', onupdate='CASCADE'))
+    UIimid = Column(Integer, ForeignKey("Image.IMid", onupdate="CASCADE"), primary_key=True)
+    Uimgurl  = Column(VARCHAR(128))
 
 class Activity(Base):
     __tablename__ = 'Activity'
@@ -41,6 +47,13 @@ class Activity(Base):
     Actitle = Column(VARCHAR(12), nullable=False)
     Acvalid = Column(Boolean, nullable=False, default=1)
     Accategory = Column(Integer , nullable=False ,default= 0)# 校园 情感 物品分别对应1，2，3
+
+class Activityimage(Base):
+    __tablename__ = 'Activityimage'
+    ACIimid = Column(Integer, ForeignKey('Image.IMid', onupdate='CASCADE'), primary_key=True)
+    Aimageid = Column(Integer,ForeignKey('Activity.Acid', onupdate='CASCADE'))
+    Acimgurl = Column(VARCHAR(128))
+
 
 class Favorite(Base):#点赞表
     __tablename__ = 'Favorite'
@@ -61,3 +74,11 @@ class ActivityComment(Base):#评论表
     Comertel = Column(CHAR(11), ForeignKey('User.Utel',onupdate='CASCADE'),nullable=False)
     Comcontent = Column(VARCHAR(128),nullable=False)
     Comvalid = Column(Boolean,nullable=False,default=1)
+
+class Image(Base):
+    __tablename__ = 'Image'
+
+    IMid = Column(Integer,primary_key=True,nullable=False)
+    IMvalid = Column(Boolean,default=1)
+    IMT = Column(DateTime(timezone=True), default=func.now())
+    IMname = Column(VARCHAR(128), nullable=False)

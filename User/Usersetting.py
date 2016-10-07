@@ -2,6 +2,8 @@
 import json
 from BaseHandlerh import BaseHandler
 from Database.tables import User
+from Image.ImageHandler import ImageHandler
+from Image.Upload import AuthkeyHandler
 
 
 class Usersetting(BaseHandler):
@@ -27,4 +29,24 @@ class Usersetting(BaseHandler):
                 print e
                 self.retjson['code']='10032'
                 self.retjson['contents']='用户修改失败'
+
+        elif type == '10110':#要求上传头像，返回token
+            u_id = self.get_argument('uid')
+            image = self.get_argument('image')
+            image_token_handler = AuthkeyHandler()
+            m_image_json = json.loads(image)
+            self.retjson['contents'] = image_token_handler.generateToken(m_image_json)
+            self.retjson['code'] = '10111'
+
+
+        elif type == '10120':
+            u_tel = self.get_argument('utel')
+            image = self.get_argument('image')
+            m_image_json = json.loads(image)
+            auth = AuthkeyHandler()
+            im = ImageHandler()
+            im.change_user_headimage(m_image_json, u_tel)
+            self.retjson['contents'] = auth.download_url(m_image_json[0])
+            self.retjson['code'] = '66666'
+
         self.write(json.dumps(self.retjson, ensure_ascii=False, indent=2))
