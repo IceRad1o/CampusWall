@@ -6,7 +6,7 @@ author:wjl 2016-10-6
 import time
 
 from Database.models import get_db
-from Database.tables import UserImage, Image
+from Database.tables import UserImage, Image,Activityimage
 
 
 class ImageHandler(object):
@@ -63,3 +63,24 @@ class ImageHandler(object):
                 im.IMvalid = 0
         db.commit()
         self.insert_user_image(newimage, utel)
+
+    def insert_activity_image(self, list, ac_id):
+        '''
+
+        Args:
+            list: 图片的名字的数组
+            ac_id: 活动的ID
+
+        Returns:
+
+        '''
+        imids = self.insert(list)
+        for i in range(len(imids)):
+            image = Activityimage(
+                Aimageid=ac_id,
+                ACIimid=imids[i],
+                Acimgurl=list[i]
+            )
+            db = get_db()
+            db.merge(image)
+            db.commit()

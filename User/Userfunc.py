@@ -1,8 +1,17 @@
 # -*- coding:utf-8 -*-
-from Database.tables import User
+from Database.models import get_db
+from Database.tables import User, UserImage, Image
 
 
 def Userfunc(item,retdata):
+    userurl = get_db().query(UserImage).filter(UserImage.Uimagetel==item.Utel).all()
+    url = []
+    for user_headimage in userurl:
+        exist = get_db().query(Image).filter(Image.IMid == user_headimage.UIimid, Image.IMvalid == 1).all()
+        if exist:
+            url = user_headimage
+            break;
+
     try:
         if item.Ubirthday:
             Ubirthday = User.Ubirthday.strftime('%Y-%m-%d %H:%M:%S'),
@@ -11,6 +20,7 @@ def Userfunc(item,retdata):
     except Exception, e:
         print e
         Ubirthday = ''
+
     m_Userfunc=dict(
         Uid=item.Uid,
         Upassword=item.Upassword,
@@ -24,6 +34,7 @@ def Userfunc(item,retdata):
         UregistT = item.UregistT.strftime('%Y-%m-%dT%H:%M:%S') ,
         Usex =item.Usex ,
         Usign =item.Usign,
+        Userurl = url
     )
     retdata.append(m_Userfunc)
 

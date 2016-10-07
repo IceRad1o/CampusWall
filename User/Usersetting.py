@@ -31,7 +31,7 @@ class Usersetting(BaseHandler):
                 self.retjson['contents']='用户修改失败'
 
         elif type == '10110':#要求上传头像，返回token
-            u_id = self.get_argument('uid')
+            #u_id = self.get_argument('uid')
             image = self.get_argument('image')
             image_token_handler = AuthkeyHandler()
             m_image_json = json.loads(image)
