@@ -36,7 +36,7 @@ def Userfunc(item,retdata):
         UregistT = item.UregistT.strftime('%Y-%m-%dT%H:%M:%S') ,
         Usex =item.Usex ,
         Usign =item.Usign,
-        Userurl = auth.download_url(url.UIurl)
+        Userurl = auth.download_url(url.Uimgurl)
     )
     retdata.append(m_Userfunc)
 
