@@ -34,6 +34,7 @@ class Usersetting(BaseHandler):
             #u_id = self.get_argument('uid')
             image = self.get_argument('image')
             image_token_handler = AuthkeyHandler()
+            #jsont = "{'fuck':'exome??'}"
             m_image_json = json.loads(image)
             self.retjson['contents'] = image_token_handler.generateToken(m_image_json)
             self.retjson['code'] = '10111'

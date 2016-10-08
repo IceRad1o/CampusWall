@@ -47,7 +47,7 @@ class ImageHandler(object):
             image = UserImage(
                 Uimagetel=utel,
                 UIimid=imids[i],
-                Uurl=list[i]
+                Uimgurl=list[i]
             )
             db = get_db()
             db.merge(image)
