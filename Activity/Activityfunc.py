@@ -46,6 +46,7 @@ def Activityfunc(item,userphone,retdata):
         Accontent=item.Accontent,
         Actitle=item.Actitle,
         Acisliked = acisliked,
+        niming = item.niming
     )
     retdata.append(m_Activity)
 def Commentfunc(item,retdata):
