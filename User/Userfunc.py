@@ -1,9 +1,11 @@
 # -*- coding:utf-8 -*-
+
 from Database.models import get_db
 from Database.tables import User, UserImage, Image
-
+from Image.Upload import AuthkeyHandler
 
 def Userfunc(item,retdata):
+    auth = AuthkeyHandler()
     userurl = get_db().query(UserImage).filter(UserImage.Uimagetel==item.Utel).all()
     url = []
     for user_headimage in userurl:
@@ -34,7 +36,7 @@ def Userfunc(item,retdata):
         UregistT = item.UregistT.strftime('%Y-%m-%dT%H:%M:%S') ,
         Usex =item.Usex ,
         Usign =item.Usign,
-        Userurl = url
+        Userurl = auth.download_url(url.UIurl)
     )
     retdata.append(m_Userfunc)
 
