@@ -47,6 +47,7 @@ class Activity(Base):
     Actitle = Column(VARCHAR(12), nullable=False)
     Acvalid = Column(Boolean, nullable=False, default=1)
     Accategory = Column(Integer , nullable=False ,default= 0)# 校园 情感 物品分别对应1，2，3
+    niming = Column(Integer,nullable=False,default=0)
 
 class Activityimage(Base):
     __tablename__ = 'Activityimage'

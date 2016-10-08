@@ -32,8 +32,8 @@ class ActivityPublish(BaseHandler):
                Accontent='',
                Actitle=m_title,
                Acvalid=1,
-               Accategory=''
-
+               Accategory='',
+               niming = 1
            )
            self.db.merge(my_activity)
            self.db.commit()
@@ -50,6 +50,7 @@ class ActivityPublish(BaseHandler):
            m_content = self.get_argument('content',default='null')
            m_image = self.get_argument('image', default='null')
            ac_id = self.get_argument('acid',default='null')
+           any = self.get_argument('niming',default='null')
            try:
                 userid=self.db.query(User).filter(User.Utel==m_author).one()
                 m_id = userid.Uid
@@ -62,8 +63,8 @@ class ActivityPublish(BaseHandler):
                     Accontent=m_content,
                     Actitle=m_title,
                     Acvalid=1,
-                    Accategory=m_category
-
+                    Accategory=m_category,
+                    niming = any,
                 )
                 self.db.merge(my_activity)
                 self.db.commit()
