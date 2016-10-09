@@ -33,7 +33,7 @@ class Activitycomment(BaseHandler):
             m_acid = self.get_argument('acid', default='null')
             retdata=[]
             try:
-                comac = self.db.query(Activity).filter(Activity.Acid == m_acid).one
+                #comac = self.db.query(Activity).filter(Activity.Acid == m_acid).one
 
                 allcomment= self.db.query(ActivityComment).filter(ActivityComment.ActivityAcid==m_acid).all()
                 for item in allcomment:

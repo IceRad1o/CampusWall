@@ -73,11 +73,25 @@ def Activityfunc(item,userphone,retdata):
 
 
 def Commentfunc(item,retdata):
+    auth = AuthkeyHandler()
+
+    test = get_db().query(UserImage).filter(UserImage.Uimagetel == item.Comertel).all()
+    url = []
+    for user_headimage in test:
+        exist = get_db().query(Image).filter(Image.IMid == user_headimage.UIimid, Image.IMvalid == 1).all()
+        if exist:
+            url = user_headimage
+            break;
+            # 返回发起活动的用户的头像
+    id = get_db().query(User).filter(User.Utel==item.Comertel).all()
     Comment = dict(
 
     Commentid= item.Commentid,
     Comertel = item.Comertel,
+    Comerimgurl = auth.download_url(url.Uimgurl),
+    ComerUalais = id[0].Ualais,
     Comcontent = item.Comcontent,
+
 
     )
     retdata.append(Comment)
