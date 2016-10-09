@@ -33,14 +33,19 @@ class ActivityPublish(BaseHandler):
                Actitle=m_title,
                Acvalid=1,
                Accategory='',
-               niming = 1
+               niming = 0
            )
            self.db.merge(my_activity)
            self.db.commit()
-           retjson_body['acID']=my_activity.Acid
-
-           self.retjson['code'] = '10044'
-           self.retjson['contents'] = retjson_body
+           try:
+               test = self.db.query(Activity).filter(Activity.Acsponsorid==m_id,Activity.Actitle==m_title).one()
+               retjson_body['acID']=test.Acid
+               self.retjson['code'] = '10044'
+               self.retjson['contents'] = retjson_body
+           except Exception,e:
+              print e
+              self.retjson['code'] = '10045'
+              self.retjson['contents']= '初始化失败！'
 
 
        elif type == '10040':
