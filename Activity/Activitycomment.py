@@ -13,14 +13,14 @@ class Activitycomment(BaseHandler):
             m_phone = self.get_argument('phone',default='null')
             m_comment = self.get_argument('comment',default='null')
             try:
-                comac = self.db.query(Activity).filter(Activity.Acid == m_acid).one
+                comac = self.db.query(Activity).filter(Activity.Acid == m_acid).one()
                 newcom = ActivityComment(
 
                 ActivityAcid = m_acid,
                 Comertel = m_phone,
                 Comcontent = m_comment,
                 )
-                #comac. AccommentN = comac. AccommentN+1
+                comac.AccommentN = comac.AccommentN+1
                 self.db.merge(newcom)
                 self.db.commit()
                 self.retjson['code']='10091'
