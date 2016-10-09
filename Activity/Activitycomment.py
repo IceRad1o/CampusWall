@@ -20,6 +20,7 @@ class Activitycomment(BaseHandler):
                 Comertel = m_phone,
                 Comcontent = m_comment,
                 )
+                #comac. AccommentN = comac. AccommentN+1
                 self.db.merge(newcom)
                 self.db.commit()
                 self.retjson['code']='10091'

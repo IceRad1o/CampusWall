@@ -23,8 +23,8 @@ class Userinfo(BaseHandler):
                 self.retjson['code']='10022'
                 self.retjson['contents']='查找出现错误'
         if type == '10023':
-            m_phone = self.get_argument('phone', default='null')
-            infomation = self.db.query(User).filter(m_phone == User.Utel).one()
+            m_phone = self.get_argument('uid', default='null')
+            infomation = self.db.query(User).filter(m_phone == User.Uid).one()
             self.retjson['code']='10024'
-            self.retjson['contents']=infomation.Uid
+            self.retjson['contents']=infomation.Utel
         self.write(json.dumps(self.retjson, ensure_ascii=False, indent=2))
