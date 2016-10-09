@@ -17,7 +17,7 @@ def Activityfunc(item,userphone,retdata):
                 break;
     #返回发起活动的用户的头像
 
-    aclurl = get_db().query(Activityimage).filter(Activityimage.Aimageid == item.ACid).limit(1).all()
+    aclurl = get_db().query(Activityimage).filter(Activityimage.Aimageid == item.Acid).limit(1).all()
     #:返回活动图片
 
 

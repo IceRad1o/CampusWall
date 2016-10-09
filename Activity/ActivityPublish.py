@@ -76,7 +76,7 @@ class ActivityPublish(BaseHandler):
                 self.db.commit()
                 m_image_json = json.loads(m_image)
                 Image = ImageHandler()
-                Image.insert_activity_image(m_image_json, ac_id)
+                Image.insert_activity_image(m_image_json,ac_id)
                 self.retjson['code'] = '10041'
                 self.retjson['contents'] = '发布成功'
            except Exception,e:
