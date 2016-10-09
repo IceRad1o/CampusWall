@@ -59,19 +59,20 @@ class ActivityPublish(BaseHandler):
            try:
                 userid=self.db.query(User).filter(User.Utel==m_author).one()
                 m_id = userid.Uid
-                my_activity = Activity(
-                    Acsponsorimg='',
-                    Acsponsorid=m_id,
-                    #AcsponsT='0000-00-00 00:00:00',
-                    AccommentN=0,
-                    AclikeN=0,
-                    Accontent=m_content,
-                    Actitle=m_title,
-                    Acvalid=1,
-                    Accategory=m_category,
-                    niming = any,
+                self.db.query(Activity).filter(Activity.Acid==ac_id).\
+                    update(
+                    {Activity.Acsponsorimg:'',
+                     Activity.Acsponsorid:m_id,
+                     Activity.AccommentN:0,
+                     Activity.AclikeN:0,
+                     Activity.Accontent:m_content,
+                     Activity.Actitle:m_title,
+                     Activity.Acvalid:1,
+                     Activity.Accategory:m_category,
+                     Activity.niming :any},
+                     synchronize_session = False
                 )
-                self.db.merge(my_activity)
+
                 self.db.commit()
                 m_image_json = json.loads(m_image)
                 Image = ImageHandler()
