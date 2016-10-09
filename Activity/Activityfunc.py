@@ -8,7 +8,8 @@ def Activityfunc(item,userphone,retdata):
     #活动返回模型
 
     auth = AuthkeyHandler()
-    test = get_db().query(UserImage).filter(UserImage.Uimagetel == item.Acsponsorid).all()
+    test01 = get_db().query(User).filter(User.Uid == item.Acsponsorid).one()
+    test = get_db().query(UserImage).filter(UserImage.Uimagetel == test01.Utel).all()
     url=[]
     for user_headimage in test:
         exist = get_db().query(Image).filter(Image.IMid == user_headimage.UIimid, Image.IMvalid == 1).all()
@@ -18,6 +19,7 @@ def Activityfunc(item,userphone,retdata):
     #返回发起活动的用户的头像
 
     aclurl = get_db().query(Activityimage).filter(Activityimage.Aimageid == item.Acid).limit(1).all()
+
     #:返回活动图片
 
 
@@ -34,21 +36,39 @@ def Activityfunc(item,userphone,retdata):
     except Exception,e:
         print e
         acisliked = 0
-    m_Activity=dict(
-        Acid=item.Acid,
-        Acsponsorname = nickname[0].Ualais,
-        Acsponsorid=item.Acsponsorid,
-        Acsponsorimg = auth.download_url(url.Uimgurl),
-        Acimgurl = auth.download_url(aclurl[0]. Acimgurl),
-        AcsponsT=item.AcsponsT.strftime('%Y-%m-%dT%H:%M:%S'),
-        AccommentN=item.AccommentN,
-        AclikeN=item.AclikeN,
-        Accontent=item.Accontent,
-        Actitle=item.Actitle,
-        Acisliked = acisliked,
-        niming = item.niming
-    )
-    retdata.append(m_Activity)
+    if aclurl:
+        m_Activity=dict(
+            Acid=item.Acid,
+            Acsponsorname = nickname[0].Ualais,
+            Acsponsorid=item.Acsponsorid,
+            Acsponsorimg = auth.download_url(url.Uimgurl),
+            Acimgurl = auth.download_url(aclurl[0]. Acimgurl),
+            AcsponsT=item.AcsponsT.strftime('%Y-%m-%dT%H:%M:%S'),
+            AccommentN=item.AccommentN,
+            AclikeN=item.AclikeN,
+            Accontent=item.Accontent,
+            Actitle=item.Actitle,
+            Acisliked = acisliked,
+            niming = item.niming
+        )
+        retdata.append(m_Activity)
+    else:
+        m_Activity = dict(
+            Acid=item.Acid,
+            Acsponsorname=nickname[0].Ualais,
+            Acsponsorid=item.Acsponsorid,
+            Acsponsorimg=auth.download_url(url.Uimgurl),
+            Acimgurl='',
+            AcsponsT=item.AcsponsT.strftime('%Y-%m-%dT%H:%M:%S'),
+            AccommentN=item.AccommentN,
+            AclikeN=item.AclikeN,
+            Accontent=item.Accontent,
+            Actitle=item.Actitle,
+            Acisliked=acisliked,
+            niming=item.niming
+        )
+        retdata.append(m_Activity)
+
 
 
 
