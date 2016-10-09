@@ -16,12 +16,14 @@ class Usersetting(BaseHandler):
             m_password =self.get_argument('password',default='null')
             m_school=self.get_argument('school',default='null')
             m_signature=self.get_argument('signature',default='null')
+            m_sex = self.get_argument('sex',default='null')
             try:
                 setting = self.db.query(User).filter(User.Utel==m_phone).one()
                 setting.Upassword = m_password
                 setting.Ualais = m_nickname
                 setting.Uschool = m_school
                 setting.Usign= m_signature
+                setting.Usex = m_sex
                 self.db.commit()
                 self.retjson['code']='10031'
                 self.retjson['contents']=r"修改用户信息成功！"
