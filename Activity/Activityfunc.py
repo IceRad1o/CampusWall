@@ -8,7 +8,7 @@ def Activityfunc(item,userphone,retdata):
     #活动返回模型
 
     auth = AuthkeyHandler()
-    test = get_db().query(UserImage).filter(UserImage.Uimagetel == userphone).all()
+    test = get_db().query(UserImage).filter(UserImage.Uimagetel == item.Acsponsorid).all()
     url=[]
     for user_headimage in test:
         exist = get_db().query(Image).filter(Image.IMid == user_headimage.UIimid, Image.IMvalid == 1).all()
@@ -49,6 +49,9 @@ def Activityfunc(item,userphone,retdata):
         niming = item.niming
     )
     retdata.append(m_Activity)
+
+
+
 def Commentfunc(item,retdata):
     Comment = dict(
 
