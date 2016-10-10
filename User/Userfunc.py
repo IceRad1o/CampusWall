@@ -22,21 +22,39 @@ def Userfunc(item,retdata):
     except Exception, e:
         print e
         Ubirthday = ''
+    if url:
+        m_Userfunc=dict(
+            Uid=item.Uid,
+            Upassword=item.Upassword,
+            Utel=item.Utel,
+            Ualais=item.Ualais, # 昵称
+            Uname = item.Uname , # 真实姓名
+            Uschool = item.Uschool ,  # 学校
+            Umailbox = item.Umailbox ,  # unique=True) # unique表示唯一性
+            Ubirthday = Ubirthday ,
+            Uscore =item.Uscore ,
+            UregistT = item.UregistT.strftime('%Y-%m-%dT%H:%M:%S') ,
+            Usex =item.Usex ,
+            Usign =item.Usign,
+            Userurl = auth.download_url(url.Uimgurl)
+        )
+        retdata.append(m_Userfunc)
+    else:
+        m_Userfunc = dict(
+            Uid=item.Uid,
+            Upassword=item.Upassword,
+            Utel=item.Utel,
+            Ualais=item.Ualais,  # 昵称
+            Uname=item.Uname,  # 真实姓名
+            Uschool=item.Uschool,  # 学校
+            Umailbox=item.Umailbox,  # unique=True) # unique表示唯一性
+            Ubirthday=Ubirthday,
+            Uscore=item.Uscore,
+            UregistT=item.UregistT.strftime('%Y-%m-%dT%H:%M:%S'),
+            Usex=item.Usex,
+            Usign=item.Usign,
+            Userurl=''
+        )
+        retdata.append(m_Userfunc)
 
-    m_Userfunc=dict(
-        Uid=item.Uid,
-        Upassword=item.Upassword,
-        Utel=item.Utel,
-        Ualais=item.Ualais, # 昵称
-        Uname = item.Uname , # 真实姓名
-        Uschool = item.Uschool ,  # 学校
-        Umailbox = item.Umailbox ,  # unique=True) # unique表示唯一性
-        Ubirthday = Ubirthday ,
-        Uscore =item.Uscore ,
-        UregistT = item.UregistT.strftime('%Y-%m-%dT%H:%M:%S') ,
-        Usex =item.Usex ,
-        Usign =item.Usign,
-        Userurl = auth.download_url(url.Uimgurl)
-    )
-    retdata.append(m_Userfunc)
 
