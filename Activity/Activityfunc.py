@@ -70,21 +70,38 @@ def Activityfunc(item,userphone,retdata):
             )
             retdata.append(m_Activity)
     else:
-        m_Activity = dict(
-            Acid=item.Acid,
-            Acsponsorname=nickname[0].Ualais,
-            Acsponsorid=item.Acsponsorid,
-            Acsponsorimg=auth.download_url(url.Uimgurl),
-            Acimgurl='',
-            AcsponsT=item.AcsponsT.strftime('%Y-%m-%dT%H:%M:%S'),
-            AccommentN=item.AccommentN,
-            AclikeN=item.AclikeN,
-            Accontent=item.Accontent,
-            Actitle=item.Actitle,
-            Acisliked=acisliked,
-            niming=item.niming
-        )
-        retdata.append(m_Activity)
+        if url:
+            m_Activity = dict(
+                Acid=item.Acid,
+                Acsponsorname=nickname[0].Ualais,
+                Acsponsorid=item.Acsponsorid,
+                Acsponsorimg=auth.download_url(url.Uimgurl),
+                Acimgurl='',
+                AcsponsT=item.AcsponsT.strftime('%Y-%m-%dT%H:%M:%S'),
+                AccommentN=item.AccommentN,
+                AclikeN=item.AclikeN,
+                Accontent=item.Accontent,
+                Actitle=item.Actitle,
+                Acisliked=acisliked,
+                niming=item.niming
+            )
+            retdata.append(m_Activity)
+        else:
+            m_Activity = dict(
+                Acid=item.Acid,
+                Acsponsorname=nickname[0].Ualais,
+                Acsponsorid=item.Acsponsorid,
+                Acsponsorimg='',
+                Acimgurl='',
+                AcsponsT=item.AcsponsT.strftime('%Y-%m-%dT%H:%M:%S'),
+                AccommentN=item.AccommentN,
+                AclikeN=item.AclikeN,
+                Accontent=item.Accontent,
+                Actitle=item.Actitle,
+                Acisliked=acisliked,
+                niming=item.niming
+            )
+            retdata.append(m_Activity)
 
 
 
